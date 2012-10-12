@@ -1,0 +1,41 @@
+table
+{
+	margin: 10px;
+	pading: 5px;
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+
+td
+{
+	width: 50px;
+	text-align: center;
+	border: 1px #dddddd solid;
+}
+
+table.input td
+{
+	width: auto;
+}
+
+sub, sup
+{
+	font-size: 70%;
+}
+
+input
+{
+	width: 40px;
+	margin: 0;
+}
+
+input[type=button]
+{
+	width: auto;
+}
+
+.pivot
+{
+	border: 2px solid black;
+}
+

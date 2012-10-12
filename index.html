@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+		<link rel="stylesheet" type="text/css" href="simplex.css" />
+		<title>Simplex Solver - Harcourt Programming</title>
+
+		<script type="text/javascript" src="factors.js"></script>
+		<script type="text/javascript" src="rational.js"></script>
+		<script type="text/javascript" src="dom.js"></script>
+		<script type="text/javascript" src="state.js"></script>
+		<script type="text/javascript" src="util.js"></script>
+		<script type="text/javascript" src="input.js"></script>
+	</head>
+	<body>
+		<h1>Simplex Solver</h1>
+		<div>
+ 			<input type="button" value="Add Variable" onclick="input.addvar()" />
+ 			<input type="button" value="Add Constraint" onclick="input.addequ()" />
+		</div>
+		<script type="text/javascript">document.body.appendChild(input.init());</script>
+	</body>
+</html>
+
