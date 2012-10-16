@@ -77,6 +77,38 @@ var input = {
 			row.insertBefore(this.plus(), node);
 			row.insertBefore(this.box(), node);
 		}
+	},
+	tostate: function ()
+	{
+		var state = states.create(this.vars, this.element.children.length - 2);
+		var equ  = {
+			vals : new Array(state.columns),
+			clear : function(base)
+			{
+				for (var i = 0; i < state.columns; ++i)
+					if (i == base)
+						this.vals[i] = 1;
+					else
+						this.vals[i] = 0;
+			}
+		};
+
+		equ.clear(0);
+		state.setequation(0, state.column(0), util.rational(equ.vals));
+
+		for (var i = 1; i < this.element.children.length; ++i)
+		{
+			equ.clear(i + this.columns);
+
+			for (var j = 1; j <= this.vars; ++j)
+				equ.vals[j] = this.element.children[i].children[2*j-1].children[0].value;
+
+			//equ.vals[state.columns - 1] = this.element.children[i].lastChild.children[0].value;
+
+			state.setequation(i-1, state.column(i + state.vars -1), util.rational(equ.vals));
+		}
+
+		return state;
 	}
 };
 

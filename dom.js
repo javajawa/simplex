@@ -43,6 +43,11 @@ var dom = {
 			this.setText(cell, (r.s *r.n))
 			return cell;
 		}
+		else if (r.d == NaN)
+		{
+			this.setText(cell, 'NaN');
+			return cell;
+		}
 
 		var sub  = document.createElement('sub');
 		var sup  = document.createElement('sup');
