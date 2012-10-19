@@ -96,14 +96,14 @@ var input = {
 		equ.clear(0);
 		state.setequation(0, state.column(0), util.rational(equ.vals));
 
-		for (var i = 1; i < this.element.children.length; ++i)
+		for (var i = 2; i < this.element.children.length; ++i)
 		{
-			equ.clear(i + this.columns);
+			equ.clear(i - 1 + this.vars);
 
 			for (var j = 1; j <= this.vars; ++j)
-				equ.vals[j] = this.element.children[i].children[2*j-1].children[0].value;
+				equ.vals[j] = this.element.children[i].children[2*j-1].children[0].value || 0;
 
-			//equ.vals[state.columns - 1] = this.element.children[i].lastChild.children[0].value;
+			equ.vals[state.columns - 1] = this.element.children[i].lastChild.children[0].value || 0;
 
 			state.setequation(i-1, state.column(i + state.vars -1), util.rational(equ.vals));
 		}

@@ -43,7 +43,7 @@ var dom = {
 			this.setText(cell, (r.s *r.n))
 			return cell;
 		}
-		else if (r.d == NaN)
+		else if (isNaN(r.d))
 		{
 			this.setText(cell, 'NaN');
 			return cell;
