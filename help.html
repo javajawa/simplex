@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<title>Simplex Solver - Harcourt Programming</title>
+
+		<script type="text/javascript" src="script.js" aysnc defer></script>
+	</head>
+	<body>
+		<h1>Simplex Solver &mdash; Some Help</h1>
+
+		<h2>History &amp; About</h2>
+		<p>The simplex solver was originally written whilst revising for an
+		Operations Research exam. The past papers were somewhat useless in the
+		respect that there were no sample answers, and the dependence of each
+		part of a question on the previous one caused problems.</p>
+		<p>When you add to this the number of mistakes that creep in on the
+		third day of adding up column and subtracting rows, it didn't take long
+		for disagreements to form between members of the revision group.
+		I took the decision that coding something which could perform a pivot
+		operation would be useful.</p>
+		<p>That should have been it done forever &mdash; except that I happened
+		to end up writing a rational number handling library one evening (as one
+		does). So, the project got resurrect (and, in fact, entirely rewritten)
+		as a powerful use case for that extremely small library.</p>
+		<p>You can read more on
+		<a href="http://blog.harcourtprogramming.co.uk/tags/JavaScript">my
+		blog</a>.</p>
+
+		<h2>What does this tool do?</h2>
+		<p>The tool has three main features:
+		<ul>
+			<li>It will take a set of variables and constraints, and draw out
+			a simplex tableau that describes them.</li>
+			<li>It will perform a pivot operation, replacing a basic variable
+			with a non-basic variable, and updating all of the cells in the
+			tableau accordingly.</li>
+			<li>Keeps a history of all the tableau's seen</li>
+		</ul>
+		</p>
+
+		<h2>How do I enter values?</h2>
+		<p>Although you can't just copy-paste equations into a box (yet),
+		I tried to make the number handling usefully clever. It will
+		accept integers (eg, '2', '-3'), decimal strings '2.22', '-1.5',
+		and rational numbers '8/3' , '-74/6'; number are then all stored as
+		cancelled down rational numbers</p>
+
+		<h2>Auto Solve</h2>
+		<p>Be careful of the auto-solve. There will always be the temptation
+		to do some piece of coursework by using the auto solve, and then
+		reformatting the output. However, you're still going to have to do
+		some work, because the rationals this thing throws out will give away
+		the fact a computer it doing in the work &mdash; in reality, you don't
+		want to always cancel things down; having everything over the same
+		common denominator is generally more useful.</p>
+		<p>Furthermore, the auto solver may not be entirely perfect.</p>
+
+		<h2>Why is there a greyed-out dropped-down saying 'max'?</h2>
+		<p>When doing a simplex problem, you can either be asked to minimise
+		or maximise the main equation (the objective row). The procedure is
+		almost identical; however, I finished this code mainly for the sake
+		of being able to take it off the to-do list. Therefore, the minor
+		changes required to make the auto solver solve minimisation problems
+		wasn't implemented. You're welcome to patch the code, though!</p>
+
+		<h2>What is x<sub>0</sub> and the top row?</h2>
+		<p>x<sub>0</sub> is a value that represents your objective function.
+		If you were maximising 3x<sub>1</sub> + 4x<sub>2</sub>, then we say
+		that x<sub>0</sub> = 3x<sub>1</sub> + 4x<sub>2</sub>, or
+	 	x<sub>0</sub> - 3x<sub>1</sub> + 4x<sub>2</sub> = 0.</p>
+	</body>
+</html>

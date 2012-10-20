@@ -1,21 +1,84 @@
+*
+{
+	margin: 0
+}
+
+html
+{
+	padding: 20px;
+	background-image: url('http://static.harcourtprogramming.co.uk/backgrounds/wood.png');
+}
+
+body
+{
+	font-family: Calibri, 'Open-Sans', sans-serif;
+}
+
+h1
+{
+	border-bottom: 1px black solid;
+	padding-left: 2em;
+	margin-bottom: 15px;
+}
+
+h2
+{
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+h2>a
+{
+	border-bottom: 1px black solid;
+	display: block;
+}
+
+p
+{
+	text-align: justify;
+	margin-bottom: 0.5ex;
+}
+
 table
 {
+	table-layout: fixed;
 	margin: 10px;
-	pading: 5px;
-	border: 2px solid black;
 	border-collapse: collapse;
+}
+
+tr:first-child>td:first-child
+{
+	border-top-left-radius: 10px;
+}
+tr:first-child>td:last-child
+{
+	border-top-right-radius: 10px;
+}
+tr:last-child>td:first-child
+{
+	border-bottom-left-radius: 10px;
+}
+tr:last-child>td:last-child
+{
+	border-bottom-right-radius: 10px;
+}
+
+div:not(#input) td:first-child, div:not(#input) td:last-child
+{
+	background-color: rgba(0, 0, 255, 0.1);
+}
+
+tr
+{
+	background-clip: padding-box;
 }
 
 td
 {
+	background-clip: border-box;
 	width: 50px;
 	text-align: center;
-	border: 1px #dddddd solid;
-}
-
-table.input td
-{
-	width: auto;
+	background: rgba(255, 255, 255, 0.35);
 }
 
 sub, sup
@@ -23,10 +86,25 @@ sub, sup
 	font-size: 70%;
 }
 
-input
+#input>table
+{
+	border-collapse: separate;
+	background: rgba(255, 255, 255, 0.35);
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#input>table td
+{
+	width: auto;
+	background: none;
+}
+
+#input>table input
 {
 	width: 40px;
 	margin: 0;
+	background: rgba(255, 255, 255, 0.4);
 }
 
 input[type=button]
@@ -34,8 +112,25 @@ input[type=button]
 	width: auto;
 }
 
-.pivot
+#current tr:hover
 {
-	border: 2px solid black;
+	background: rgba(255, 255, 0, 0.2);
+	cursor: pointer;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+}
+
+#history>table:hover
+{
+	background: rgba(255, 255, 0, 0.2);
+	cursor: pointer;
+}
+
+#current
+{
+	border-bottom: 1px solid black;
+	margin-bottom: 25px;
 }
 

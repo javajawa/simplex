@@ -12,6 +12,9 @@ var rational =
 	},
 	simplify : function(r)
 	{
+		if (r.n == 0)
+			return {s:r.s,n:0,d:1};
+
 		var num = factors.get(r.n);
 		var dom = factors.get(r.d);
 
@@ -52,6 +55,8 @@ var rational =
 	},
 	parse : function(str)
 	{
+		str = str.toString();
+		str = str.replace(this.doubleNeg, '');
 		if (this.pattern.test(str))
 		{
 			var data = this.pattern.exec(str);
@@ -107,6 +112,7 @@ var rational =
 		}
 	},
 	pattern : /(-?[0-9]+) ?\/ ?([0-9]+)/,
+	doubleNeg : /--/g,
 	fpat : /-?[0-9]+(.[0-9]+)?/
 };
 

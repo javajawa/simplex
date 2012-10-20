@@ -21,7 +21,7 @@ var dom = {
 			table.appendChild(row);
 		}
 
-		document.body.appendChild(table);
+		return table;
 	},
 	label : function (data)
 	{
